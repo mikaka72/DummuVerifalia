@@ -24,6 +24,12 @@ public class BaseController {
 	
 	private Logger LOGGER = Logger.getLogger(BaseController.class);
 		
+	
+	@RequestMapping(value = "/v1.1/hello", method = RequestMethod.GET)
+	public @ResponseBody String helloRequest() {
+		return "Verifalia dummy server is up and running...";
+	}
+	
 	@RequestMapping(value = "/v1.1/email-validations", method = RequestMethod.POST)
 	public @ResponseBody Response handlePostRequest(@RequestBody Request req) {
 		LOGGER.debug("Received Post request: "+req.toString() );
