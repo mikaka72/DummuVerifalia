@@ -15,6 +15,7 @@ public class DummyDataGenerator {
 
 	public static String ServerIsCatchAll = "ServerIsCatchAll";
 	public static String MailboxTemporarilyUnavailable = "MailboxTemporarilyUnavailable";
+	public static String DomainDoesNotExist = "DomainDoesNotExist";
 	
 	private static Logger LOGGER = Logger.getLogger(DummyDataGenerator.class);
 	
@@ -47,12 +48,18 @@ public class DummyDataGenerator {
 			entry.setDisposableEmailAddress(false);
 			entry.setRoleAccount(false);
 
-			if(count %2 ==0){
-				
-				entry.setStatus(ServerIsCatchAll);
+			if(count == 1){
+				entry.setStatus(DomainDoesNotExist);
 			} else{
-				entry.setStatus(MailboxTemporarilyUnavailable);
+				if(count %2 ==0){
+					
+					entry.setStatus(ServerIsCatchAll);
+				} else{
+					entry.setStatus(MailboxTemporarilyUnavailable);
+				}
 			}
+			
+			
 			
 			entry.setCatchAllFailure(false);
 			entry.setSyntaxFailureIndex(null);
