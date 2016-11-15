@@ -78,10 +78,10 @@ public class BaseController {
 		ObjectMapper mapper = new ObjectMapper();
 		Request req = new Request();
 		List<RequestEntry> reqEntries = new ArrayList<RequestEntry>();
-		reqEntries.add(new RequestEntry("test1.cdl.com"));
-		reqEntries.add(new RequestEntry("test2.cdl.com"));
-		reqEntries.add(new RequestEntry("test3.cdl.com"));
-		reqEntries.add(new RequestEntry("test4.cdl.com"));
+		reqEntries.add(new RequestEntry("test1@cdk.com"));
+		reqEntries.add(new RequestEntry("test2@cdk.com"));
+		reqEntries.add(new RequestEntry("test3@cdk.com"));
+		reqEntries.add(new RequestEntry("test4@cdk.com"));
 		
 		req.setEntries(reqEntries);
 		
