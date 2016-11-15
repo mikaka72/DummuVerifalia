@@ -39,9 +39,9 @@ public class DummyDataGenerator {
 			entry.setInputData(reqEntry.getInputData());
 			entry.setCompletedOn("2014-08-01T12:06:32");
 			entry.setEmailAddress(reqEntry.getInputData());
-			entry.setAsciiEmailAddressDomainPart("example.com");
+			entry.setAsciiEmailAddressDomainPart(getDomainPart(reqEntry.getInputData()));
 			entry.setEmailAddressLocalPart(getLocalPart(reqEntry.getInputData()));
-			entry.setEmailAddressDomainPart("example.com");
+			entry.setEmailAddressDomainPart(getDomainPart(reqEntry.getInputData()));
 			entry.setHasInternationalDomainName(false);
 			entry.setHasInternationalMailboxName(false);
 			entry.setHasInternationalDomainName(false);

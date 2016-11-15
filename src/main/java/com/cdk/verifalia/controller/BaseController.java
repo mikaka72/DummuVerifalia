@@ -1,6 +1,8 @@
 package com.cdk.verifalia.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonGenerationException;
@@ -12,10 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cdk.verifalia.mock.DummyDataGenerator;
 import com.cdk.verifalia.model.Request;
+import com.cdk.verifalia.model.RequestEntry;
 import com.cdk.verifalia.model.Response;
 
 @Controller
@@ -65,5 +69,26 @@ public class BaseController {
 		return response;
 
 	}
+	
+	@RequestMapping(value = "/v1.1/email-validations", method = RequestMethod.GET)
+	public @ResponseBody Response handleGetRequest() {
+		
+		LOGGER.debug("/v1.1/email-validations GET ");
+	
+		ObjectMapper mapper = new ObjectMapper();
+		Request req = new Request();
+		List<RequestEntry> reqEntries = new ArrayList<RequestEntry>();
+		reqEntries.add(new RequestEntry("test1.cdl.com"));
+		reqEntries.add(new RequestEntry("test2.cdl.com"));
+		reqEntries.add(new RequestEntry("test3.cdl.com"));
+		reqEntries.add(new RequestEntry("test4.cdl.com"));
+		
+		req.setEntries(reqEntries);
+		
+		Response response = DummyDataGenerator.generateResponse(req);
+		return response;
+		
+	}
+	
 		
 }
