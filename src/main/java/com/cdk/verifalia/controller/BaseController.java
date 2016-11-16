@@ -70,18 +70,17 @@ public class BaseController {
 
 	}
 	
-	@RequestMapping(value = "/v1.1/email-validations", method = RequestMethod.GET)
-	public @ResponseBody Response handleGetRequest() {
+	@RequestMapping(value = "/v1.1/email-validations/{id}", method = RequestMethod.GET)
+	public @ResponseBody Response handleGetRequest(@PathVariable("id") String id) {
 		
-		LOGGER.debug("/v1.1/email-validations GET ");
+		LOGGER.debug("/v1.1/email-validations GET with id: "+ id);
 	
 		ObjectMapper mapper = new ObjectMapper();
 		Request req = new Request();
 		List<RequestEntry> reqEntries = new ArrayList<RequestEntry>();
-		reqEntries.add(new RequestEntry("test1@cdk.com"));
-		reqEntries.add(new RequestEntry("test2@cdk.com"));
-		reqEntries.add(new RequestEntry("test3@cdk.com"));
-		reqEntries.add(new RequestEntry("test4@cdk.com"));
+		reqEntries.add(new RequestEntry("v.c.huovinen@test.com"));
+		reqEntries.add(new RequestEntry("v.c.testinen@test.com"));
+		
 		
 		req.setEntries(reqEntries);
 		

@@ -45,7 +45,7 @@ public class DummyDataGeneratorTest {
 		
 		assertEquals(3, response.getEntries().size());
 		
-		assertEquals(DummyDataGenerator.MailboxTemporarilyUnavailable, response.getEntries().get(0).getStatus());
+		assertEquals(DummyDataGenerator.DomainDoesNotExist, response.getEntries().get(0).getStatus());
 		assertEquals(DummyDataGenerator.ServerIsCatchAll, response.getEntries().get(1).getStatus());
 		assertEquals(DummyDataGenerator.MailboxTemporarilyUnavailable, response.getEntries().get(2).getStatus());
 		
